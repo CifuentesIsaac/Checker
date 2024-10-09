@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row w-100 h-100">
+        <div class="col-12">
+            <div class="back">
+                <form [formGroup]="Login">
+                    <img class="header-logo" src="" alt="" srcset="">            
+                    <br>
+                    <h2 class="mb-3">Iniciar Sesión</h2>
+                    <br>
+                    <div class="form-floating mb-3 w-100">
+                        <input type="number" class="form-control form-control-sm w-100" id="floatingInput" placeholder="N°. Nomina" formControlName="NNomina">
+                        <label for="floatingInput">N°. Nomina</label>
+                    </div>
+                    <div class="form-floating mb-3 w-100">
+                        <input type="password" class="form-control form-control-sm w-100" id="floatingPassword" placeholder="Contraseña" formControlName="contra">
+                        <label for="floatingPassword">Contraseña</label>
+                    </div>
+                    <br>                                     
+                    <button type="submit" (click)="verify()" [disabled]="!Login.valid" class="btn btn-primary w-100">Ingresar</button>
+                    <br>                
+                    <div class="form-floating mt-1 w-100">
+                        <p class="link" type="button">Olvide mi contraseña</p>
+                    </div>                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
