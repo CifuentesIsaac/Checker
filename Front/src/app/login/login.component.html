@@ -3,7 +3,7 @@
         <div class="col-12">
             <div class="back">
                 <form [formGroup]="Login">
-                    <img class="header-logo" src="" alt="" srcset="">            
+                    <img class="header-logo" src="../../assets/header_logo01.png" alt="" srcset="">            
                     <br>
                     <h2 class="mb-3">Iniciar Sesión</h2>
                     <br>
@@ -19,9 +19,26 @@
                     <button type="submit" (click)="verify()" [disabled]="!Login.valid" class="btn btn-primary w-100">Ingresar</button>
                     <br>                
                     <div class="form-floating mt-1 w-100">
-                        <p class="link" type="button">Olvide mi contraseña</p>
+                        <p class="link" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Olvide mi contraseña</p>
                     </div>                    
                 </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Olvido de contraseña</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="Input1" class="form-label ">Ingresa numero de nomina:</label>
+                    <input type="number" class="form-control" id="Input1" placeholder="No. Nomina">
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn">Enviar</button>
+                </div>
             </div>
         </div>
     </div>

@@ -55,8 +55,8 @@ export class LoginComponent implements OnInit{
           sessionStorage.setItem('jwt', resp.jwt);
           sessionStorage.setItem('user', JSON.stringify(resp.user));
           sessionStorage.setItem('userName', `${resp.user.Name} ${resp.user.LastName}`);  
-          this.toastr.success(`iniciaste sesion como ${resp.user.Name}`,'Bienvenido');          
-          this.router.navigate(['inicio']);                              
+          this.toastr.success(`iniciaste sesion como ${resp.user.Name}`,'Bienvenido'); 
+          this.router.navigate(['inicio']);                           
         } else {
           console.log(resp);
         }               
