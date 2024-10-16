@@ -3,24 +3,28 @@
         <div class="col-12">
             <div class="back">
                 <form [formGroup]="Login">
-                    <img class="header-logo" src="../../assets/header_logo01.png" alt="" srcset="">            
+                    <img class="header-logo" src="../../assets/header_logo01.png" alt="" srcset="">
                     <br>
                     <h2 class="mb-3">Iniciar Sesión</h2>
                     <br>
                     <div class="form-floating mb-3 w-100">
-                        <input type="number" class="form-control form-control-sm w-100" id="floatingInput" placeholder="N°. Nomina" formControlName="NNomina">
+                        <input type="number" class="form-control form-control-sm w-100" id="floatingInput"
+                            placeholder="N°. Nomina" formControlName="NNomina">
                         <label for="floatingInput">N°. Nomina</label>
                     </div>
                     <div class="form-floating mb-3 w-100">
-                        <input type="password" class="form-control form-control-sm w-100" id="floatingPassword" placeholder="Contraseña" formControlName="contra">
+                        <input type="password" class="form-control form-control-sm w-100" id="floatingPassword"
+                            placeholder="Contraseña" formControlName="contra">
                         <label for="floatingPassword">Contraseña</label>
                     </div>
-                    <br>                                     
-                    <button type="submit" (click)="verify()" [disabled]="!Login.valid" class="btn btn-primary w-100">Ingresar</button>
-                    <br>                
+                    <br>
+                    <button type="submit" (click)="verify()" [disabled]="!Login.valid"
+                        class="btn btn-primary w-100">Ingresar</button>
+                    <br>
                     <div class="form-floating mt-1 w-100">
-                        <p class="link" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Olvide mi contraseña</p>
-                    </div>                    
+                        <p class="link" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Olvide mi
+                            contraseña</p>
+                    </div>
                 </form>
             </div>
         </div>
@@ -30,14 +34,57 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5">Olvido de contraseña</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <label for="Input1" class="form-label ">Ingresa numero de nomina:</label>
-                    <input type="number" class="form-control" id="Input1" placeholder="No. Nomina">
+                    <form [formGroup]="forgotForm" (ngSubmit)="sendMail()">
+                        <label for="Input1" class="form-label ">Ingresa numero de nomina:</label>
+                        <input type="number" class="form-control" id="Input1" placeholder="No. Nomina"
+                            formControlName="Nomina">
+                        <div class="modal-footer justify-content-center">
+                            <button class="btn" data-bs-dismiss="modal">Enviar</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn">Enviar</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Cambiar la contraseña</h1>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="registerForm" (ngSubmit)="changePass()">
+                        <div class="col-md">
+                            <label for="validation1" class="form-label">Nueva contraseña</label>
+                            <input type="password" class="form-control" id="validation1" formControlName="password"
+                                required>
+                            <!-- <div *NgIf="registerForm.controls['password'].errors?.['pattern'] && registerForm.controls['password'].touched"
+                                class="invalid-feedback">
+                                Formato invalido
+                            </div> -->
+                        </div>
+                        <!-- <div class="col-md">
+                            <label for="validation2" class="form-label">Confirmar contraseña</label>
+                            <input type="password" class="form-control" id="validation2"
+                                formControlName="confirmPassword" required>
+                            <div *NgIf="registerForm.controls['confirmPassword'].errors?.['mustMatch'] && registerForm.controls['confirmPassword'].touched"
+                                class="invalid-feedback">
+                                Dato requerido
+                            </div>
+                        </div> -->
+                        <div class="col-md">
+                            <ul class="text-start list-unlisted">
+                                <li>Minimo 8 caracteres</li> 
+                                <li>1 Letra Mayuscula</li>
+                                <li>1 Numero</li>                           
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success" [disabled]="!registerForm.valid">Guardar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
