@@ -1,0 +1,17 @@
+Módulo de Autenticación
+========================
+
+Propósito
+---------
+Este módulo maneja todas las funcionalidades relacionadas con la autenticación de usuarios, incluyendo registro, inicio de sesión y recuperación de contraseña.
+
+Funciones Principales
+---------------------
+- **login(userCredentials)**: Verifica las credenciales del usuario y permite el acceso si son correctas.
+- **register(userData)**: Registra un nuevo usuario en el sistema.
+- **forgotPassword(email)**: Envía un correo electrónico para restablecer la contraseña al usuario.
+
+Interacción con Otros Módulos
+------------------------------
+- Este módulo interactúa con el módulo de **Usuarios** para almacenar y recuperar datos de usuario.
+- Utiliza funciones del módulo de **Notificaciones** para enviar correos electrónicos de recuperación de contraseña.
