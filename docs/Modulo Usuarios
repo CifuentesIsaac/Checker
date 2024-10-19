@@ -1,0 +1,16 @@
+Módulo de Usuarios
+========================
+Propósito
+--------------------------
+Este módulo tiene como objetivo crear nuevos usuarios y verficar los existrentes 
+--------------------
+Funciones Principales.
+------------------------
+1- Crear nuevos Usuarios 
+2- Gestionar a los Usuarios y su Información 
+-----------------------------------------------
+Interacción con Otros Módulos
+------------------------------
+- Este módulo interactúa con modulo de Aunteticacion ya que con el nusario nos deja acceder al sitio , Al igual interactua con otros modulos 
+dando acceso a la información 
+
