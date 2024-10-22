@@ -18,11 +18,99 @@ exports.saveUser = async (req, res) => {
         let user = new userModel(userData);
         await user.save();
 
-        res.send(user);
+        res.status(200).json({
+            ok: true,
+            msg: 'Usuario creado'
+        })
 
     } catch (error) {
         console.log(error);
         res.status(500).json({
+            ok: false,
+            type: error.name,
+            message: error.message
+        })
+    }
+}
+
+exports.editUser = async (req, res) => {
+    try {
+        user = await userModel.findOne({ _id: req.params.id });
+
+        if (!user) {
+            res.status(404).json({
+                ok: false,
+                msg: 'El usuario no existe'
+            })
+        }
+        userMod = await userModel.updateOne({ _id: req.params.id }, req.body);
+
+        res.status(200).json({
+            ok: true,
+            msg: 'Usuario guardado'
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            type: error.name,
+            message: error.message
+        })
+    }
+}
+
+exports.getUsers = async (req, res) => {
+    try {
+        const usuarios = await userModel.find();
+        res.json(usuarios);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Error al intentar listar los usuarios',
+            message: error.message
+        })
+    }
+}
+
+exports.getUserByID = async (req, res) => {
+    try {
+        const user = await userModel.findById(req.params.id);
+        if (!user) {
+            res.status(404).json({
+                ok: false,
+                msg: 'El usuario no existe'
+            })
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            type: error.name,
+            message: error.message
+        })
+    }
+}
+
+exports.deleteUser = async (req, res) => {
+    try {
+        let usuario = await userModel.findById(req.params.id);
+        if(!usuario){
+            res.status(404).json({
+                ok: false,
+                msg: 'El usuario no existe'
+            })
+        }
+
+        await userModel.deleteOne({_id: req.params.id});
+        res.status(200).json({
+            ok: true,
+            msg: 'Exito'
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
             type: error.name,
             message: error.message
         })
@@ -124,7 +212,7 @@ exports.changePass = async (req, res) => {
     } else {
         res.status(404).json({
             ok: false,
-            msg: 'Error'
+            msg: 'Error al actualizar'
         });
     }
 }

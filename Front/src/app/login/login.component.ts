@@ -58,8 +58,7 @@ export class LoginComponent implements OnInit {
     this.Loginhttp.login(this.Login.value.NNomina, this.Login.value.contra).subscribe({
       next: (resp) => {
         if (!resp.user.ItsNew) {
-          sessionStorage.setItem('jwt', resp.jwt);
-          sessionStorage.setItem('user', JSON.stringify(resp.user));
+          sessionStorage.setItem('jwt', resp.jwt);          
           sessionStorage.setItem('userName', `${resp.user.Name} ${resp.user.LastName}`);
           this.toastr.success(`iniciaste sesion como ${resp.user.Name}`, 'Bienvenido');
           this.router.navigate(['inicio']);
