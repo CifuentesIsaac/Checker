@@ -1,0 +1,17 @@
+Módulo de Números de Parte
+====================================
+Propósito 
+-------------------------------------------
+Este módulo tiene como objetivo mostrar el número de partes que se tienen en el almacén con ciertas características de dichas partes.
+
+Funciones Principales
+--------------------------------------------------------------------
+1-Crear nuevas partes.
+2-Editar partes existentes.
+3-Ver partes desactivadas.
+4-Ver los datos de las partes, como la cantidad y la descripción.
+
+Interacción con Otros Módulos
+------------------------------
+- Este módulo interactúa con el módulo de checklist, ya que está vinculado con la seguridad requerida para cubrir las piezas
+

@@ -1,0 +1,14 @@
+Módulo de Números de Parte
+================================
+Propósito
+-------------------------------------------------------
+Este módulo tiene como objetivo llenar la informacion adecuada de seguirdas para el ditinto tipo de piezas 
+------------------------------------------------------------------
+Funciones Principales
+--------------------------------------------------------------------
+-Verficar que los datos que se estran registrado son adecuados 
+------------------------------------------------
+Interacción con Otros Módulos
+------------------------------------------------------------------------------
+Este módulo interactúa con el módulo de Número de partes , ya que está vinculado con las piezas a utilizar .
+

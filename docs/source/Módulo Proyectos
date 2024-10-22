@@ -1,0 +1,15 @@
+Módulo de Proyectos
+========================
+Propósito
+--------------------------
+Este módulo tiene como funcion ayudarnos a creear nuevos proyectos y gestionar los que ya tenemos creados 
+--------------------
+Funciones Principales.
+------------------------
+1- Crear nuevos Proyectos 
+2- Gestionar proyectos realizados o por realizar 
+-----------------------------------------------
+Interacción con Otros Módulos
+------------------------------
+- Este módulo interactúa con modulo de Ususarios ya que nos permite ver quien creer el proyecto 
+
