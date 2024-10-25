@@ -27,7 +27,7 @@ export class UsuarioService {
     return this.http.delete<Server>(this.url + 'delete-user/' + id);
   }
 
-  obtenerUsuarioID(id: string): Observable<Server> {
-    return this.http.get<Server>(this.url + 'get-user-id/' + id);
+  obtenerUsuarioID(id: string): Observable<any> {
+    return this.http.get<any>(this.url + 'get-user-id/' + id);
   }
 }

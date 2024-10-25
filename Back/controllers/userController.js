@@ -82,6 +82,12 @@ exports.getUserByID = async (req, res) => {
                 msg: 'El usuario no existe'
             })
         }
+        res.status(200).json({
+            ok: true,
+            message: 'Exito',
+            result: user
+        })
+
     } catch (error) {
         console.log(error);
         res.status(500).json({
