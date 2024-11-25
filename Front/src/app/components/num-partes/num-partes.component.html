@@ -1,0 +1,232 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary navbar-light bg-light">
+    <div class="container-fluid m-2">
+        <h4 class="me-3">{{nameUser}}</h4>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="/inicio">Proyectos</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Catálogos
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink="/num-partes">Numeros de parte</a></li>
+                        <li><a class="dropdown-item" routerLink="/usuarios">Usuarios</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <ul class="navbar-nav">
+            <li class="nav-item" style="cursor: pointer;">
+                <a (click)="logService.logOut()" class="nav-link">Cerrar sesion <i class="bi bi-box-arrow-right"
+                        style="font-size: 20px; color: red;"></i></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container text-center justify-content-center p-3 mt-3">
+    <h2>Numeros de parte</h2>
+</div>
+<!-- Boton para abrir modal -->
+<div class="container ms-2">
+    <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#myModal">
+        <span>Agregar <i class="bi bi-plus-circle" style="font-size: 15px; color: white;"></i></span>
+    </button>
+    <!-- Mostrar opciones de edicion -->
+    <button class="btn btn-secondary me-2" (click)="toggleButton()">
+        <span>Editar <i class="bi bi-pencil" style="font-size: 15px; color: black;"></i></span>
+    </button>
+    <!-- Boton para modal de desactivados -->
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal2">
+        Ver desactivados
+    </button>
+</div>
+
+
+<!-- Modal agregar -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">{{titulo}}</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closeForm()"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form [formGroup]="numParteForm" (ngSubmit)="agregarNumPart()" class="row g-3 was-validated">
+                    <div class="col-md-4">
+                        <label for="validation1" class="form-label">No. Issue</label>
+                        <input type="number" class="form-control" id="validation1" formControlName="NIssue" required>
+                        <div class="invalid-feedback">
+                            Dato requerido
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validation2" class="form-label">No. Parte</label>
+                        <input type="text" class="form-control" id="validation2" formControlName="Npart"
+                            style="text-transform: uppercase;" required>
+                        <div class="invalid-feedback">
+                            Dato requerido
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="validation3" class="form-label">Cantidad</label>
+                        <input type="number" class="form-control" id="validation3" formControlName="Qty" required>
+                        <div class="invalid-feedback">
+                            Dato requerido
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="validation4" class="form-label">Descripcion</label>
+                        <input type="text" class="form-control" id="validation4" formControlName="Desc"
+                            style="text-transform: uppercase;" required>
+                        <div class="invalid-feedback">
+                            Dato requerido
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validation5" class="form-label">DNFP</label>
+                        <input type="text" class="form-control" id="validation5" formControlName="DNFP"
+                            style="text-transform: uppercase;" required>
+                        <div class="invalid-feedback">
+                            Dato requerido
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validation6" class="form-label">Test Code</label>
+                        <input type="text" class="form-control" id="validation6" formControlName="TCode"
+                            style="text-transform: uppercase;" required>
+                        <div class="invalid-feedback">
+                            Dato requerido
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validation7" class="form-label">Proyecto</label>
+                        <input type="text" class="form-control" id="validation7" formControlName="Project"
+                            list="options" required>
+                        <datalist id="options">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </datalist>
+                        <div class="invalid-feedback">
+                            Dato requerido
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validation8" class="form-label">Peso individual (kg)</label>
+                        <input type="number" class="form-control" id="validation8" formControlName="IWeight" required>
+                        <div class="invalid-feedback">
+                            Dato requerido
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="validation15" class="form-label">Cliente</label>
+                        <input type="text" class="form-control" id="validation15" formControlName="Customer"
+                            style="text-transform: uppercase;" required>
+                        <div class="invalid-feedback">
+                            Dato requerido
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" (click)="closeForm()" data-bs-dismiss="modal"
+                            style="background-color: rgb(199, 12, 12); border-color: rgb(199, 12, 12);">Cancelar</button>
+                        <button type="submit" class="btn btn-success" data-bs-dismiss="modal"
+                            [disabled]="!numParteForm.valid">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="p-4">
+    <div class="container-fluid justify-content-center text-center" id="table">
+        <div style="width: max-content;">
+            <table class="table table-striped table-bordered" *ngIf="listNumPartes.length > 0">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th scope="col" style="width: 150px; display: none;" id="toggleCol">Editar</th>
+                        <th scope="col" style="width: 150px;">No. de Issue</th>
+                        <th scope="col" style="width: 150px;">No. de parte</th>
+                        <th scope="col" style="width: 150px;">Cantidad</th>
+                        <th scope="col" style="width: 150px;">Descripcion</th>
+                        <th scope="col" style="width: 150px;">DNFP</th>
+                        <th scope="col" style="width: 150px;">Test Code</th>
+                        <th scope="col" style="width: 150px;">Proyecto</th>
+                        <th scope="col" style="width: 150px;">Peso Individual</th>
+                        <th scope="col" style="width: 150px;">Customer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let numParte of listNumPartes">
+                        <td style="display: none;">
+                            <a title="Editar" role="button" data-bs-toggle="modal" data-bs-target="#myModal"
+                                (click)="obtenerNumParteID(numParte._id)" style="cursor:pointer;">
+                                <i class="bi bi-pencil-square m-2" style="font-size: 20px; color: #007bff;"></i>
+                            </a>
+                            <a title="Desactivar" style="cursor: pointer;" (click)="desactivarNumParte(numParte._id)">
+                                <i class="bi bi-dash-circle-fill m-2" style="font-size: 20px; color: red;"></i>
+                            </a>
+                        </td>
+                        <td>{{numParte.NumIssue}}</td>
+                        <td>{{numParte.NumPart}}</td>
+                        <td>{{numParte.Qty}}</td>
+                        <td>{{numParte.Description}}</td>
+                        <td>{{numParte.DNFP}}</td>
+                        <td>{{numParte.TestCode}}</td>
+                        <td>{{numParte.Project}}</td>
+                        <td>{{numParte.IndividualWeight}} Kg</td>                
+                        <td>{{numParte.customer}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="container d-flex flex-column justify-content-center align-items-center"
+        *ngIf="listNumPartes.length == 0 ">
+        <h4 class="text-secondary">No hay nada para mostrar</h4>
+        <i class="bi bi-exclamation-diamond" style="font-size: 4em; color: gray;"></i>
+    </div>
+</div>
+<!-- Modal para ver los desactivados -->
+<div class="modal fade" id="myModal2">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">No. De parte desactivados</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" *ngIf="listNumPartDes.length > 0">
+                <div class="container" id="listUsuarios" *ngFor="let listDes of listNumPartDes">
+                    <div class="row mt-1">
+                        <div class="col-sm">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title text-center">{{listDes.NumPart}}</h5>
+                                </div>
+                                <div class="card-body text-center">
+                                    <button type="button" class="btn btn-primary"
+                                        (click)="activNumParte(listDes._id)">Activar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container text-center mt-5 mb-5" *ngIf="listNumPartDes.length <= 0">
+                <h4 class="text-secondary">No hay numeros desactivados</h4>
+                <i class="bi bi-exclamation-diamond" style="font-size: 4em; color: gray;"></i>
+            </div>
+        </div>
+    </div>
+</div>

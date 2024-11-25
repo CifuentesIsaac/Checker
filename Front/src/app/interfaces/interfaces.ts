@@ -5,6 +5,20 @@ export interface LoginResponse {
     user:user
 }
 
+export interface numParte {
+    _id?: number;
+    NumIssue: number;
+    NumPart: string;
+    Qty: number;
+    Description: string;
+    DNFP: string;
+    TestCode: string;
+    Project: string;
+    IndividualWeight: number;
+    customer: string;
+    Status: boolean;
+};
+
 export interface user {
     _id?: number;
     Employee_ID: number;

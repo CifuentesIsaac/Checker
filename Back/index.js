@@ -13,6 +13,7 @@ app.use(express.json());
 
 //Rutas de la aplicacion
 app.use('/', require('./routes/usersRoute'));
+app.use('/', require('./routes/num-partes.route'));
 
 //Ruta principal
 app.get('/', (req, res) => {
