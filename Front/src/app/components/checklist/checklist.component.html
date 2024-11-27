@@ -53,10 +53,10 @@
                 <div class="row align-items-center my-2">
                     <div class="col-3">No. de parte:</div>
                     <div class="col-auto">
-                        <div class="form-check">
+                        <!-- <div class="form-check">
                             <input type="checkbox" class="form-check-input" (change)="toggleInput('NumParte', $event)"
                                 value="1">
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col">
                         <input class="form-control" type="text" placeholder="No. de parte"
@@ -66,10 +66,10 @@
                 <div class="row align-items-center my-2">
                     <div class="col-3">No. de issue:</div>
                     <div class="col-auto">
-                        <div class="form-check">
+                        <!-- <div class="form-check">
                             <input type="checkbox" class="form-check-input" (change)="toggleInput('NumIssue', $event)"
                                 value="1">
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col">
                         <input class="form-control" type="text" placeholder="No. de issue"
@@ -162,32 +162,50 @@
             <div class="col-lg">
                 <div class="row align-items-center my-2">
                     <div class="col-3">Etiqueta interna:</div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" (change)="toggleInput('EtiquetaInt', $event)"
+                                value="1">
+                        </div>
+                    </div>
                     <div class="col">
-                        <input class="form-control" type="text" placeholder="Etiqueta">
+                        <input class="form-control" type="text" placeholder="Etiqueta" formControlName="EtiquetaInt"> 
                     </div>
                 </div>
                 <div class="row align-items-center my-2">
                     <div class="col-3">Etiqueta externa:</div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" (change)="toggleInput('EtiquetaExt', $event)"
+                                value="1">
+                        </div>
+                    </div>
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Etiqueta">
+                        <input type="text" class="form-control" placeholder="Etiqueta" formControlName="EtiquetaExt">
                     </div>
                 </div>
                 <div class="row align-items-center my-2">
                     <div class="col-3">SNP:</div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" (change)="toggleInput('SNP', $event)"
+                                value="1">
+                        </div>
+                    </div>
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="SNP">
+                        <input type="text" class="form-control" placeholder="SNP" formControlName="SNP">
                     </div>
                 </div> 
                 <div class="row align-items-center my-2">
-                    <div class="col-3">Foto:</div>
-                    <div class="col">
-                        <!-- Upload here -->
-                    </div>
-                </div>
-                <div class="row align-items-center my-2">
                     <div class="col-3">Revisado por:</div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" (change)="toggleInput('RevisPor', $event)"
+                                value="1">
+                        </div>
+                    </div>
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Nombre">
+                        <input type="text" class="form-control" placeholder="Nombre" formControlName="RevisPor">
                     </div>                    
                 </div>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalChecker">Terminar Revision</button>                                                
@@ -205,7 +223,8 @@
                         </div>
                         <div class="modal-footer justify-content-center">
                             <button class="btn btn-secondary" data-bs-dismiss="modal">Revisar</button>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSign">Continuar</button>
+                            <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSign">Continuar</button> -->
+                            <button class="btn btn-primary" (click)="generatePDF()" data-bs-dismiss="modal">Continuar</button>
                         </div>
                     </div>
                 </div>

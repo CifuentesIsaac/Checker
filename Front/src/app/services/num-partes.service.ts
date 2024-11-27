@@ -16,7 +16,7 @@ export class NumPartesService {
     return this.http.get<any>(this.url + 'num-parts');
   }
 
-  getNumParteID(id: string): Observable<any> {
+  getNumParteID(id: any): Observable<any> {
     return this.http.get<any>(this.url + 'get-num-part/' + id)
   }
 

@@ -49,6 +49,7 @@ export class InicioComponent implements OnInit {
     this.ServiceNumParte.getNumParteID(id).subscribe({
       next: (res) => {
         this.info = res
+        sessionStorage.setItem('id', id)
       }
     })
   }
