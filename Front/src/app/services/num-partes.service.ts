@@ -8,7 +8,8 @@ import { numParte, Server } from '../interfaces/interfaces';
 })
 export class NumPartesService {
 
-  url = 'http://localhost:4000/api/';
+  // url = 'http://localhost:4000/api/';
+  url = 'https://checker-back-814c03dc40b3.herokuapp.com/api/'
 
   constructor(private http: HttpClient) { }
 

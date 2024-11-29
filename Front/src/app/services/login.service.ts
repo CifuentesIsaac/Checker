@@ -10,7 +10,8 @@ import { LoginResponse } from '../interfaces/interfaces';
 })
 export class LoginService {
 
-  url: string = 'http://localhost:4000/api/'
+  // url: string = 'http://localhost:4000/api/'
+  url: string = 'https://checker-back-814c03dc40b3.herokuapp.com/api/'
 
   constructor(private http: HttpClient, private router: Router) { }
 
